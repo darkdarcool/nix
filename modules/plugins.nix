@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 {
-users.users.darkdarcool = {
-	isNormalUser = true;
-	description = "darkdarcool";
-	extraGroups = [ "networkmanager" "wheel" ];
-	packages = with pkgs; [
-		firefox
+	users.users.darkdarcool = {
+		isNormalUser = true;
+		description = "darkdarcool";
+		extraGroups = [ "networkmanager" "wheel" ];
+		packages = with pkgs; [
+			firefox
 			kitty
 			wl-clipboard
 			copyq
@@ -26,7 +26,7 @@ users.users.darkdarcool = {
 			alacritty
 			starship
 			spotify
-	];
+		];
 	};
 
 }

@@ -22,17 +22,17 @@
 	xdg.portal.enable = true;
 
 	programs.hyprland.enable = true;
-  programs.light.enable = true; 
- # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-  services.blueman.enable = true;
-  programs._1password.enable = true;
-  programs._1password-gui = {
-    enable = true;
-    polkitPolicyOwners = [ "darkdarcool" ];
-  };
+	programs.light.enable = true; 
+	# Configure keymap in X11
+	services.xserver = {
+		layout = "us";
+		xkbVariant = "";
+	};
+	services.blueman.enable = true;
+	programs._1password.enable = true;
+	programs._1password-gui = {
+		enable = true;
+		polkitPolicyOwners = [ "darkdarcool" ];
+	};
 
 }

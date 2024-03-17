@@ -6,73 +6,49 @@
 
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./modules/plugins.nix 
-      ./modules/programs.nix 
-      ./modules/system.nix
-      ./modules/env.nix
-    ];
- 
-  # Sudo
-  security.sudo.extraRules= [
-  {  users = [ "darkdarcool" ];
-    commands = [
-       { command = "ALL" ;
-         options= [ "NOPASSWD" "SETENV" ]; # "SETENV" # Adding the following could be a good idea
-      }
-    ];
-  }
-];
+	imports =
+		[ # Include the results of the hardware scan.
+		./hardware-configuration.nix
+			./modules/plugins.nix 
+			./modules/programs.nix 
+			./modules/system.nix
+			./modules/env.nix
+		];
 
-    # If you hate yourself
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+	# Sudo
+	security.sudo.extraRules= [
+	{  users = [ "darkdarcool" ];
+		commands = [
+		{ command = "ALL" ;
+			options= [ "NOPASSWD" "SETENV" ]; # "SETENV" # Adding the following could be a good idea
+		}
+		];
+	}
+	];
+
+	# If you hate yourself
+	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+	# Enable CUPS to print documents.
+	services.printing.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+	# Define a user account. Don't forget to set a password with ‘passwd’.
+	nixpkgs.config.allowUnfree = true;
+	nixpkgs.config.permittedInsecurePackages = [
+		"electron-25.9.0"
+	];
 
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-        "electron-25.9.0"
-  ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+	# This value determines the NixOS release from which the default
+	# settings for stateful data, like file locations and database versions
+	# on your system were taken. It‘s perfectly fine and recommended to leave
+	# this value at the release version of the first install of this system.
+	# Before changing this value read the documentation for this option
+	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+	system.stateVersion = "23.11"; # Did you read the comment?
 
-  # List services that you want to enable:
-  # programs.neovim = {
-    # enable = true;
-   #  defaultEdtior = true;
-  # };
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-  
- #  environment.variables.XCURSOR_SIZE = 32;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
-  
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-  ];
+	fonts.packages = with pkgs; [
+		(nerdfonts.override { fonts = [ "FiraCode" ]; })
+	];
 }
