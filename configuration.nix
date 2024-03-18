@@ -51,4 +51,10 @@
 	fonts.packages = with pkgs; [
 		(nerdfonts.override { fonts = [ "FiraCode" ]; })
 	];
+        
+        hardware.bluetooth.settings = {
+    General = {
+      Enable = "Source,Sink,Media,Socket";
+    };
+  };
 }

@@ -23,7 +23,7 @@
 
 	programs.hyprland.enable = true;
 	programs.light.enable = true; 
-	# Configure keymap in X11
+# Configure keymap in X11
 	services.xserver = {
 		layout = "us";
 		xkbVariant = "";
@@ -34,5 +34,15 @@
 		enable = true;
 		polkitPolicyOwners = [ "darkdarcool" ];
 	};
-
+	services.automatic-timezoned.enable = true;
+	programs.fish.enable = true;
+	programs.bash = {
+		interactiveShellInit = ''
+			if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+				then
+					shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+					exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+					fi
+					'';
+	};
 }

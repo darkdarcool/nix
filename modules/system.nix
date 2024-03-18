@@ -33,14 +33,35 @@
 	networking.networkmanager.enable = true;
 
 	# Audio
-	sound.enable = true;
-	hardware.pulseaudio.enable = false;
-	security.rtkit.enable = true;
-	services.pipewire = {
-		enable = true;
-		alsa.enable = true;
-		alsa.support32Bit = true;
-		pulse.enable = true;
+	# sound.enable = true;
+	# hardware.pulseaudio.enable = false;
+	# security.rtkit.enable = true;
+	# services.pipewire = {
+	# 	enable = true;
+	# 	alsa.enable = true;
+	# 	alsa.support32Bit = true;
+	# 	pulse.enable = true;
+	#
+	# };
 
-	};
+	sound.enable = true;
+    hardware.pulseaudio = {
+      enable = true;
+      package = pkgs.pulseaudioFull;
+      extraConfig = ''
+        load-module module-switch-on-connect
+      '';
+    };
+
+    hardware.bluetooth = {
+      enable = true;
+    };
+
+    # Workaround until this hits unstable:
+    # https://github.com/NixOS/nixpkgs/issues/113628
+    systemd.services.bluetooth.serviceConfig.ExecStart = [
+      ""
+      "${pkgs.bluez}/libexec/bluetooth/bluetoothd -f /etc/bluetooth/main.conf"
+    ];
+
 }

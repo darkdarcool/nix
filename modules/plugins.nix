@@ -26,6 +26,9 @@
 			alacritty
 			starship
 			spotify
+			zls
+ 			zoxide
+			fzf
 		];
 	};
 
