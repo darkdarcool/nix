@@ -1,16 +1,20 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs, inputs, ... }:
+{	
 	users.users.darkdarcool = {
 		isNormalUser = true;
 		description = "darkdarcool";
 		extraGroups = [ "networkmanager" "wheel" ];
+		
 		packages = with pkgs; [
 			firefox
 			kitty
 			wl-clipboard
 			copyq
-			bun
-			deno
+			yazi
+			# bun 
+			inputs.unstable.legacyPackages."${pkgs.system}".bun	
+			inputs.unstable.legacyPackages."${pkgs.system}".deno
+			lunar-client
 			rustup
 			neofetch
 			shotman
@@ -29,6 +33,16 @@
 			zls
  			zoxide
 			fzf
+			pkg-config
+			playerctl
+			wttrbar
+			wlsunset
+			swaynotificationcenter
+			mako
+			cli-visualizer
+			cbonsai
+			steamPackages.steamcmd
+			steam-tui
 		];
 	};
 
