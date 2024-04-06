@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
@@ -14,12 +15,14 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/fa6a9077-338d-44ca-b609-e7378d897da2";
+    {
+      device = "/dev/disk/by-uuid/fa6a9077-338d-44ca-b609-e7378d897da2";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/0484-8669";
+    {
+      device = "/dev/disk/by-uuid/0484-8669";
       fsType = "vfat";
     };
 
@@ -31,9 +34,9 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp1s0.useDHCP = lib.mkDefault true;
-#  hardware.bluetooth.enable = true;
- # hardware.bluetooth.powerOnBoot = true;
-   hardware.bluetooth = {
+  #  hardware.bluetooth.enable = true;
+  # hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth = {
     enable = true;
     settings = {
       General = {
@@ -41,7 +44,7 @@
         ControllerMode = "dual";
         FastConnectable = "true";
         Experimental = "true";
-	Disable = "Headset";
+        Disable = "Headset";
       };
       Policy = {
         AutoEnable = "true";
