@@ -1,5 +1,5 @@
 {
-  description = "A simple NixOS flake";
+  description = "My shitty system config";
 
   inputs = {
     # NixOS official package source, using the nixos-23.11 branch here
@@ -22,18 +22,7 @@
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
   };
 
-  outputs = { self, nixpkgs, home-manager, flake-parts, ... }@inputs: {
-    #let 
-    #	nixvimLib = nixvim.lib.x86_64-linux;
-    #	nixvim' = nixvim.legacyPackages.x86_64-linux;
-    #	nixvimModule = {
-    #		inhert pkgs;
-    #		module = import ./nvim.nix;
-    #		extraSpecialArgs = {
-    #		
-    #		};
-    # 	};
-    #	nvim = nixvim'.makeNixvimWithModule nixvimModule;
+  outputs = { self, nixpkgs, nixvim, home-manager, flake-parts, ... }@inputs: {
     # default is nixos
     nixosConfigurations.darkdarcool = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
@@ -58,15 +47,5 @@
         }
       ];
     };
-
-
-    #homeConfigurations.darkdarcool = home-manager.lib.homeManagerConfiguration {
-    #	inherit nixpkgs;
-    #	modules = [
-    #		nixvim.homeManagerModules.nixvim
-    #		./home.nix
-    #		./nvim.nix
-    #	];
-    #};
   };
 }
