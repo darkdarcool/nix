@@ -20,15 +20,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
+    # Color utils
+    nix-colors.url = "github:misterio77/nix-colors";
+    nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, nixpkgs, nixvim, home-manager, flake-parts, ... }@inputs: {
+  outputs = { self, nixpkgs, nixvim, nur, nix-colors, home-manager, flake-parts, ... }@inputs: {
     # default is nixos
     nixosConfigurations.darkdarcool = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       system = "x86_64-linux";
       modules = [
         (./overlays.nix)
+	nur.nixosModules.nur
         # Import the previous configuration.nix we used,
         # so the old configuration file still takes effect
         ./configuration.nix
@@ -36,9 +40,15 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+	  
+	  home-manager.extraSpecialArgs = {
+	    inherit nix-colors;
+	    inherit nur;
+	  };
 
           home-manager.users.darkdarcool = {
             imports = [
+	      inputs.nur.hmModules.nur
               inputs.nixvim.homeManagerModules.nixvim
               # ./hosts/darkdarcool/nvim.nix
               ./home.nix

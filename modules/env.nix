@@ -25,6 +25,12 @@
     openssl
     pavucontrol
     bluez
+    (pkgs.catppuccin-gtk.override {
+      accents = [ "maroon" ];
+      size = "standard";
+      tweaks = [ "rimless" "black" ];
+      variant = "mocha";
+    })
   ];
   environment.etc = {
     "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
@@ -35,5 +41,9 @@
       			["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
       		}
       	'';
+  };
+
+  environment.variables = {
+    PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";
   };
 }

@@ -7,6 +7,15 @@
     shell = pkgs.nushell;
 
     packages = with pkgs; [
+      phinger-cursors
+      cpio
+      meson
+      cmake
+      zed-editor
+      gimp 
+      vencord
+      vesktop
+      swww
       nil
       firefox
       kitty
@@ -22,6 +31,7 @@
       # inputs.unstable.legacyPackages."${pkgs.system}".neovim
       rose-pine-gtk-theme
       rose-pine-icon-theme
+      firefoxpwa
       carapace
       lunar-client
       rustup
@@ -56,6 +66,8 @@
       steam-tui
       xfce.thunar
       xfce.ristretto
+      openssl
+      libiconv
     ];
   };
 

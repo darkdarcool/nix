@@ -11,6 +11,7 @@
     ./nvim/lualine.nix
     ./nvim/noice.nix
     ./nvim/lspsaga.nix
+    ./nvim/autosave.nix
   ];
   programs.nixvim = {
     enable = true;

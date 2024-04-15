@@ -12,8 +12,10 @@
         installPhase = ''
           		 mkdir -p $out/share/fonts/opentype
           		 cp -R $src/*.otf $out/share/fonts/opentype/
-          		  '';
+        '';
       };
+
+      phocus-oxocarbon = prev.callPackage ./derivations/phocus-oxocarbon.nix { };
     })
 
     # Overlay 3: Define overlays in other files

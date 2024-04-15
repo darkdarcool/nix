@@ -6,7 +6,8 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";	
+	command = "Hyprland";
         user = "darkdarcool";
       };
     };
@@ -25,7 +26,7 @@
     clock24 = true;
     extraConfig = '' # used for less common options, intelligently combines if defined in multiple places.
 
-			'';
+			such as enablePlasmaBrowserIntegration, enableGnome'';
   };
 
   xdg.portal.enable = true;
