@@ -42,6 +42,6 @@
 
   home.sessionVariables = {
     XCURSOR_THEME = "phinger-cursors-dark";
-    XCURSOR_SIZE = "32";
+    XCURSOR_SIZE = "16";
   };
 }

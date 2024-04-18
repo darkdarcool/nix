@@ -63,5 +63,5 @@
     ""
     "${pkgs.bluez}/libexec/bluetooth/bluetoothd -f /etc/bluetooth/main.conf"
   ];
-
+  # systemd.darkdarcool.sessionVariables.SSH_AUTH_SOCK = "~/.1password/agent.sock"; 
 }

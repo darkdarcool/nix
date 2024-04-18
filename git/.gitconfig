@@ -1,0 +1,22 @@
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = op-ssh-sign # /opt/1Password/op-ssh-sign
+	allowedSignersFile = /home/darkdarcool/.config/git/allowed_signers
+[commit]
+	gpgsign = true
+[user]
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKy7glthF+/S19n4+Df4ONaSkeihuc0N3MO1GXCfUIGx
+	email = darkdarcool@gmail.com
+	name = darkdarcool
+[init]
+	defaultBranch = main
+[credential "https://github.com"]
+	helper = 
+	helper = !/etc/profiles/per-user/darkdarcool/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/etc/profiles/per-user/darkdarcool/bin/gh auth git-credential
+[safe]
+	directory = /etc/nixos
+	directory = /etc/nixos

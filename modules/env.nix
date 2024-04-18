@@ -2,7 +2,7 @@
 
 {
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  environment.sessionVariables.XCURSOR_SIZE = "32";
+  environment.sessionVariables.XCURSOR_SIZE = "28";
   environment.systemPackages = with pkgs; [
     waybar
     rofi-wayland
@@ -45,5 +45,6 @@
 
   environment.variables = {
     PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";
+    SSH_AUTH_SOCK = "~/.1password/agent.sock"; 
   };
 }
