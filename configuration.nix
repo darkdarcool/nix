@@ -35,7 +35,6 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
@@ -69,17 +68,24 @@
   };
 
   programs.auto-cpufreq.enable = true;
-    # optionally, you can configure your auto-cpufreq settings, if you have any
-    programs.auto-cpufreq.settings = {
+  # optionally, you can configure your auto-cpufreq settings, if you have any
+  programs.auto-cpufreq.settings = {
     charger = {
-      governor = "performance";
-      turbo = "auto";
+      # governor = "performance";
+      governor = "powersave";
+      turbo = "never";
     };
 
     battery = {
       governor = "powersave";
-      turbo = "auto";
+      # governor = "powersave";
+      turbo = "never";
     };
   };
 
+  #programs.nh = {
+  #  enable = true;
+  #  clean.enable = true;
+  #  clean.extraArgs = "--keep-since 5d --keep 3";
+  #};
 }

@@ -4,7 +4,7 @@
   gtk = {
     enable = true;
     font.name = "Liga SFMono Nerd Font";
-    
+
     #theme = {
     #  name = "Catppuccin-Mocha-Standard-Maroon-Dark";
     #  package = pkgs.catppuccin-gtk.override {
@@ -29,7 +29,7 @@
       package = pkgs.phinger-cursors;
     };
   };
-  
+
   home.pointerCursor = {
     gtk.enable = true;
     # x11.enable = true;

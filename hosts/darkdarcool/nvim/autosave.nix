@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }: 
+{ config, pkgs, inputs, ... }:
 
 {
   programs.nixvim.plugins.auto-save = {
@@ -6,7 +6,7 @@
     triggerEvents = [ "InsertLeave" "TextChanged" ];
     extraOptions = {
       execution_message = {
-	enabled = false;
+        enabled = false;
       };
     };
   };

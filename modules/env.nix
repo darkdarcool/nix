@@ -44,7 +44,7 @@
   };
 
   environment.variables = {
-    PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";
-    SSH_AUTH_SOCK = "~/.1password/agent.sock"; 
+    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+    SSH_AUTH_SOCK = "~/.1password/agent.sock";
   };
 }

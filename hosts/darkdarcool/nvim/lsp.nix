@@ -7,6 +7,7 @@
       denols.enable = true;
       rust-analyzer.enable = true;
       nil_ls.enable = true;
+      zls.enable = true;
     };
   };
 }

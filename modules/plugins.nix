@@ -7,12 +7,18 @@
     shell = pkgs.nushell;
 
     packages = with pkgs; [
+      direnv
+      nh
+      termcap
+      ncurses5
+      inputs.unstable.legacyPackages."${pkgs.system}".go
+      inputs.unstable.legacyPackages."${pkgs.system}".rust-analyzer
       phinger-cursors
       cpio
       meson
       cmake
       zed-editor
-      gimp 
+      gimp
       vencord
       vesktop
       swww

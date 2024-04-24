@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   time.timeZone = "America/New_York";
@@ -64,4 +64,21 @@
     "${pkgs.bluez}/libexec/bluetooth/bluetoothd -f /etc/bluetooth/main.conf"
   ];
   # systemd.darkdarcool.sessionVariables.SSH_AUTH_SOCK = "~/.1password/agent.sock"; 
+  #services.howdy = {
+  #     enable = true;
+  #     package = inputs.howdy.legacyPackages.${pkgs.system}.howdy;
+  #     settings = {
+  #       core = {
+  #         no_confirmation = true;
+  #         abort_if_ssh = true;
+  #       };
+  #       video.dark_threshold = 90;
+  #     };
+  #   };
+  #
+  #   services.linux-enable-ir-emitter = {
+  #     enable = true;
+  #     package = inputs.howdy.legacyPackages.${pkgs.system}.linux-enable-ir-emitter;
+  #   };
+
 }

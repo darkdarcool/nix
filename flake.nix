@@ -30,42 +30,47 @@
       #type = "path";
     };
     auto-cpufreq = {
-            url = "github:AdnanHodzic/auto-cpufreq";
-            inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:AdnanHodzic/auto-cpufreq";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+    howdy.url = "github:fufexan/nixpkgs/howdy";
     #ghostty = builtins.path { path = "./ghostty/flake.nix"; };
   };
 
-  outputs = { self, nixpkgs, nixvim, nur, nix-colors, ghostty, home-manager, flake-parts, auto-cpufreq, ... }@inputs: {
+  outputs = { self, nixpkgs, nixvim, nur, nix-colors, ghostty, home-manager, flake-parts, auto-cpufreq, howdy, ... }@inputs: {
     # default is nixos
     nixosConfigurations.darkdarcool = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       system = "x86_64-linux";
       modules = [
         (./overlays.nix)
-	nur.nixosModules.nur
-	{
-	  environment.systemPackages = [
+        nur.nixosModules.nur
+        {
+          environment.systemPackages = [
             ghostty.packages.x86_64-linux.default
           ];
-	}
-	auto-cpufreq.nixosModules.default
+        }
+        auto-cpufreq.nixosModules.default
         # Import the previous configuration.nix we used,
         # so the old configuration file still takes effect
         ./configuration.nix
+        { disabledModules = [ "security/pam.nix" ]; }
+        "${howdy}/nixos/modules/security/pam.nix"
+        "${howdy}/nixos/modules/services/security/howdy"
+        "${howdy}/nixos/modules/services/misc/linux-enable-ir-emitter.nix"
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-	  
-	  home-manager.extraSpecialArgs = {
-	    inherit nix-colors;
-	    inherit nur;
-	  };
+
+          home-manager.extraSpecialArgs = {
+            inherit nix-colors;
+            inherit nur;
+          };
 
           home-manager.users.darkdarcool = {
             imports = [
-	      inputs.nur.hmModules.nur
+              inputs.nur.hmModules.nur
               inputs.nixvim.homeManagerModules.nixvim
               # ./hosts/darkdarcool/nvim.nix
               ./home.nix

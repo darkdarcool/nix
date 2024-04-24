@@ -4,7 +4,7 @@
   imports = [
     ./hosts/darkdarcool/nvim.nix
     ./hosts/darkdarcool/desktop.nix
-  #  ./hosts/darkdarcool/firefox.nix
+    #  ./hosts/darkdarcool/firefox.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -16,9 +16,7 @@
   home.packages = [
   ];
 
-  home.file = {
-
-  };
+  home.file = { };
 
   home.sessionVariables = {
     # EDITOR = "emacs";

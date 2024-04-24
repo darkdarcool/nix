@@ -1,7 +1,8 @@
 { config, nix-colors, nur, pkgs, ... }:
-let 
+let
   colorscheme = nix-colors.lib.schemeFromYAML "oxocarbon-dark" (builtins.readFile ./oxocarbon-dark.yaml);
- in {
+in
+{
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
@@ -229,11 +230,11 @@ let
           inherit settings;
           inherit userChrome;
           inherit userContent;
-	  extensions = with pkgs.inputs.firefox-addons; [
-	    ublock-origin
-	    _1password
-	    refined-github
-	  ];
+          extensions = with pkgs.inputs.firefox-addons; [
+            ublock-origin
+            _1password
+            refined-github
+          ];
         };
       };
   };

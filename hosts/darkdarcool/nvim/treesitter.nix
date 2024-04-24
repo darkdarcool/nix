@@ -3,7 +3,7 @@
 {
   programs.nixvim.plugins.treesitter = {
     enable = true;
-    
+
     # vim, regex, lua, bash, markdown, and markdown_inline are required by noice.nvim
     ensureInstalled = [
       "c"

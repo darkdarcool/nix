@@ -7,12 +7,12 @@
     cmp = {
       enable = true;
       after = ''
-	function(entry, vim_after, kind)
-	  local strings = vim.split(kind.kind, "%s", { trimempty = true })
-          kind.kind = " " .. (strings[1] or "") .. " "
-          kind.menu = "    (" .. (strings[2] or "") .. ")"
-          return kind
-        end
+        	function(entry, vim_after, kind)
+        	  local strings = vim.split(kind.kind, "%s", { trimempty = true })
+                  kind.kind = " " .. (strings[1] or "") .. " "
+                  kind.menu = "    (" .. (strings[2] or "") .. ")"
+                  return kind
+                end
       '';
     };
 
@@ -75,6 +75,7 @@
         { name = "nvim_lua"; }
         { name = "path"; }
         { name = "buffer"; }
+        { name = "luasnip"; }
       ];
     };
 
@@ -104,6 +105,8 @@
         #	end
         #'';
       };
+
+      snippet.expand = "luasnip";
     };
 
     # Completions on the nvim cmdline 
