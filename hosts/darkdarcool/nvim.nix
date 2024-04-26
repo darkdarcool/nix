@@ -25,7 +25,7 @@
     # Map leader to SPACE
     globals.mapleader = " ";
 
-    extraConfigLua = ''
+    extraConfigLua = '' 
             vim.api.nvim_create_autocmd("QuitPre", {
       	callback = function()
               local tree_wins = {}
@@ -48,6 +48,7 @@
               end
             end
             })
+            
       
             vim.opt.signcolumn = "no"
 

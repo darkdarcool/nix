@@ -14,6 +14,13 @@
       dotfiles = true;
     };
 
+    actions = {
+      openFile = {
+        quitOnOpen = true;
+      };
+    };
+    
+    # autoClose = true;
     openOnSetup = true;
   };
 }

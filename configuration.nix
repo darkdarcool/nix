@@ -51,7 +51,7 @@
   system.stateVersion = "unstable"; #"23.11"; # Did you read the comment?
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    (nerdfonts.override { fonts = [ "FiraCode" "Meslo" ]; })
     sf-mono-liga-bin
   ];
 

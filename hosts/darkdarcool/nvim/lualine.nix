@@ -3,11 +3,11 @@
 {
   programs.nixvim.plugins.lualine = {
     enable = true;
-    theme = "oxocarbon";
-    sectionSeparators = {
-      left = " ";
-      right = " ";
-    };
+    # theme = "oxocarbon";
+    #sectionSeparators = {
+    #  left = " ";
+    #  right = " ";
+    #};
 
     disabledFiletypes.statusline = [
       "NvimTree"
@@ -24,8 +24,8 @@
     sections = {
       lualine_a = [
         {
-          name = "mode";
-          icon = "";
+          name = "branch";
+          icon = "";
           color = {
             bg = "NONE";
             fg = "#7b8496";
@@ -33,24 +33,7 @@
         }
       ];
       lualine_b = [
-        {
-          name = "branch";
-          icon = "";
-        }
-      ];
-      lualine_c = [
-        {
-          name = "diagnostics";
-          extraConfig = {
-            symbols = {
-              error = " ";
-              warn = " ";
-              info = " ";
-              hint = "󰝶 ";
-            };
-          };
-        }
-        {
+	{
           name = "filetype";
           separator = {
             left = "";
@@ -63,36 +46,89 @@
           extraConfig = {
             icon_only = true;
           };
-        }
+        }	
         {
           name = "filename";
+          # icon = "";
+	  extraConfig = {
+	    symbols = {
+	      modified = "  ";
+	      readonly = "";
+	      unnamed = "";
+	    };
+	  };
+	  separator = {
+	    left = null;
+	    right = "|";
+	  };
+        }
+      ];
+      lualine_c = [
+        {
+          name = "diagnostics";
           extraConfig = {
             symbols = {
-              modified = "  ";
-              readonly = "";
-              unnamed = "";
+              # error = " ";
+	      error = " ";
+              # warn = " ";
+	      warn = " ";
+              # info = " ";
+	      info = " ";
+              # hint = "󰝶 ";
+	      hint = "󰛿 ";
             };
           };
         }
       ];
-      lualine_x = [{ }];
-      lualine_y = [
-        {
-          name = "progress";
-          color = {
-            fg = "#ff6e5e";
-            bg = "NONE";
-          };
-        }
-        {
-          name = "location";
-          color = {
-            fg = "#5ef1ff";
-            bg = "NONE";
-          };
-        }
+      lualine_x = [
+	# Shitty lil' hack to get cwd in the statusline
+	{
+	  name = "filename";
+	  fmt = ''
+	    function(text)
+	      -- all content after the last '/'
+	      local cwd = vim.fn.getcwd()
+	      local cwd = cwd:match(".*/(.*)")
+	      local cwd = " " .. cwd
+	      return cwd
+	    end
+	  '';
+	  separator = {
+	    left = "";
+	    right = "|";
+	  };
+	}
       ];
-      lualine_z = [{ }];
+      lualine_y = [
+	{
+	  name = "diff";
+	  extraConfig = {
+	    color = {
+	      added = "#08bab7";
+	      modified = "#f9c859";
+	      removed = "#ec5295";
+	    };
+	    symbols = {
+	      added = " ";
+	      modified = " ";
+	      removed = " ";
+	    };
+	  };
+	  separator = {
+	    left = "";
+	    right = "|";
+	  };
+	}
+      ];
+      lualine_z = [
+	{
+	  name = "progress";
+	  color = {
+	    fg = "#ff6e5e";
+	    bg = "NONE";
+	  };
+	}
+      ];
     };
   };
 }
