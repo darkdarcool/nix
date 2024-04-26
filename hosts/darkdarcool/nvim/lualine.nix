@@ -109,9 +109,13 @@
 	      removed = "#ec5295";
 	    };
 	    symbols = {
-	      added = " ";
-	      modified = " ";
-	      removed = " ";
+	      # added = " ";
+	      added = " ";
+	      # modified = " ";
+	      # Nerd fonts - you guys are fucking shit for not having a dot :sob: 
+	      modified = " ";
+	      # removed = " ";
+	      removed = " ";
 	    };
 	  };
 	  separator = {
