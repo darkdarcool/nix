@@ -4,6 +4,7 @@
   imports = [
     ./hosts/darkdarcool/nvim.nix
     ./hosts/darkdarcool/desktop.nix
+    ./hosts/darkdarcool/wayland
     #  ./hosts/darkdarcool/firefox.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
@@ -12,7 +13,6 @@
   home.homeDirectory = "/home/darkdarcool";
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
-
   home.packages = [
   ];
 

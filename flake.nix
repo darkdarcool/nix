@@ -39,10 +39,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     howdy.url = "github:fufexan/nixpkgs/howdy";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    waybar.url = "github:Alexays/waybar";
     #ghostty = builtins.path { path = "./ghostty/flake.nix"; };
   };
 
-  outputs = { self, nixpkgs, nixvim, nur, nix-colors, ghostty, home-manager, flake-parts, auto-cpufreq, howdy, zls, zig, ... }@inputs: {
+  outputs = { self, nixpkgs, nixvim, nur, nix-colors, ghostty, home-manager, flake-parts, auto-cpufreq, howdy, zls, zig, hyprland, ... }@inputs: {
     # default is nixos
     nixosConfigurations.darkdarcool = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
@@ -76,6 +78,7 @@
 
           home-manager.users.darkdarcool = {
             imports = [
+	      inputs.hyprland.homeManagerModules.default 
               inputs.nur.hmModules.nur
               inputs.nixvim.homeManagerModules.nixvim
               # ./hosts/darkdarcool/nvim.nix

@@ -1,10 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   environment.sessionVariables.XCURSOR_SIZE = "28";
   environment.systemPackages = with pkgs; [
-    waybar
+    # waybar
+    inputs.waybar.packages."${pkgs.system}".default
     rofi-wayland
     wtype
     hyprpaper
