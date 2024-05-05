@@ -7,12 +7,16 @@
     shell = pkgs.nushell;
 
     packages = with pkgs; [
+      thunderbird
+      fontconfig
       direnv
       nh
       termcap
       ncurses5
       inputs.unstable.legacyPackages."${pkgs.system}".go
       inputs.unstable.legacyPackages."${pkgs.system}".rust-analyzer
+      inputs.zls.packages."${pkgs.system}".zls
+      inputs.zig.packages."${pkgs.system}".master
       phinger-cursors
       cpio
       meson
@@ -57,7 +61,7 @@
       starship
       spotify
       unzip
-      zls
+      # zls
       zoxide
       fzf
       pkg-config

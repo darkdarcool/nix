@@ -15,6 +15,11 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zls = {
+      url = "github:zigtools/zls";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    zig.url = "github:mitchellh/zig-overlay";
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,7 +42,7 @@
     #ghostty = builtins.path { path = "./ghostty/flake.nix"; };
   };
 
-  outputs = { self, nixpkgs, nixvim, nur, nix-colors, ghostty, home-manager, flake-parts, auto-cpufreq, howdy, ... }@inputs: {
+  outputs = { self, nixpkgs, nixvim, nur, nix-colors, ghostty, home-manager, flake-parts, auto-cpufreq, howdy, zls, zig, ... }@inputs: {
     # default is nixos
     nixosConfigurations.darkdarcool = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
@@ -66,6 +71,7 @@
           home-manager.extraSpecialArgs = {
             inherit nix-colors;
             inherit nur;
+	    inherit inputs;
           };
 
           home-manager.users.darkdarcool = {

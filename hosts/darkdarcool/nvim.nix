@@ -51,7 +51,7 @@
             
       
             vim.opt.signcolumn = "no"
-
+	    --[[
             require('diagflow').setup({
       	enable = true,
       	max_width = 60,  -- The maximum width of the diagnostic messages
@@ -86,6 +86,7 @@
       	},
       	show_borders = true,
             })
+	    --]]
     '';
 
     plugins = {

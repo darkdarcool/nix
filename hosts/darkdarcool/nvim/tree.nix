@@ -10,6 +10,8 @@
         "target"
         "result"
         ".git/"
+	"zig-cache"
+	"zig-out"
       ];
       dotfiles = true;
     };
@@ -17,6 +19,19 @@
     actions = {
       openFile = {
         quitOnOpen = true;
+      };
+    };
+
+    view = {
+      float = {
+	enable = true;
+	openWinConfig = {
+	  col = 1;
+	  row = 1;
+	  relative = "cursor";
+	  border = "shadow";
+	  style = "minimal";
+	};
       };
     };
     

@@ -14,9 +14,9 @@
     gnome3.adwaita-icon-theme
     networkmanagerapplet
     libgcc
-    zig_0_10
+    # zig_0_12
     tree-sitter
-    nodejs_21
+    nodejs_22
     obsidian
     python311
     ripgrep
@@ -25,6 +25,7 @@
     openssl
     pavucontrol
     bluez
+    inkscape-with-extensions
     (pkgs.catppuccin-gtk.override {
       accents = [ "maroon" ];
       size = "standard";
