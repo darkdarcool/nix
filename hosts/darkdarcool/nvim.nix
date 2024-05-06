@@ -87,6 +87,10 @@
       	show_borders = true,
             })
 	    --]]
+
+
+
+
     '';
 
     plugins = {
@@ -107,6 +111,15 @@
           hash = "sha256-6TeCbJV74kgm9yslPQp1k4KQv+FB+qHe5UVZN3adjko=";
         };
       })
+      #(pkgs.vimUtils.buildVimPlugin {
+      #	name = "glow-hover";
+      #	src = pkgs.fetchFromGitHub {
+      #	  owner = "JASONews";
+      #	  repo = "glow-hover.nvim";
+      #	  rev = "c8d0cae5d05c658f4701425b05f1432121092c68";
+      #	  hash = "sha256-pE4fq3tbsTswfFyf1vy8JvIQ7D/lUpoL+66Tmt1wkRE=";
+      #	};
+      #})
     ];
   };
 }

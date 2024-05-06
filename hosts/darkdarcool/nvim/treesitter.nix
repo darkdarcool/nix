@@ -5,19 +5,21 @@
     enable = true;
 
     # vim, regex, lua, bash, markdown, and markdown_inline are required by noice.nvim
-    ensureInstalled = [
-      "c"
-      "lua"
-      "typescript"
-      "rust"
-      "javascript"
-      "markdown"
-      "markdown_inline"
-      "swift"
-      "nix"
-      "vim"
-      "regex"
-      "bash"
-    ];
+    #ensureInstalled = [
+    #  "c"
+    #  "lua"
+    #  "typescript"
+    #  "rust"
+    #  "javascript"
+    #  "markdown"
+    #  "markdown_inline"
+    #  "swift"
+    #  "nix"
+    #  "vim"
+    #  "regex"
+    #  "bash"
+    #];
+    ensureInstalled = "all";
+    indent = true;
   };
 }

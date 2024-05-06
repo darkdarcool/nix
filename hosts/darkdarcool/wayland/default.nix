@@ -43,7 +43,7 @@
 	  natural_scroll = true;
 	};
 
-	sensitivity = 1.0;
+	sensitivity = 0;
       };
 
       general = {
@@ -131,6 +131,7 @@
 
       bindl = [
 	", XF86AudioMute, exec, amixer set Master toggle"
+	",switch:Lid Switch,exec,hyprlock"
       ];
 
       windowrulev2 = [
@@ -145,12 +146,13 @@
       exec-once = [
 	"copyq --start-server"	
 	"waybar"
-	"swaync"
+	# "swaync"
 	"sudo warp-svc"
 	# lock hyprland on open :)
 	"hyprlock"
 	"hyprpaper"
 	"ssh-agent -s"
+	"mako"
       ];
     };
   };

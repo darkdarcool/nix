@@ -7,11 +7,11 @@
       key = "<leader>f";
     }
     {
-      action = "<cmd>Lspsaga hover_doc<CR>";
+      action = "<cmd>lua vim.lsp.buf.hover()<CR>";
       key = "<leader>d";
     }
     {
-      action = "<cmd>Lspsaga goto_definition<CR>";
+      action = "<cmd>lua vim.lsp.buf.definition()<CR>";
       key = "<leader>D";
     }
     # TODO: Add Ctrl + F for search

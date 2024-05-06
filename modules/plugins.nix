@@ -7,6 +7,8 @@
     shell = pkgs.nushell;
 
     packages = with pkgs; [
+      glow
+      fastfetch
       thunderbird
       fontconfig
       direnv

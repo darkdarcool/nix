@@ -72,6 +72,7 @@
       sources = [
         #{ name = "copilot"; }
         { name = "nvim_lsp"; }
+	{ name = "otter"; }
         { name = "nvim_lua"; }
         { name = "path"; }
         { name = "buffer"; }
