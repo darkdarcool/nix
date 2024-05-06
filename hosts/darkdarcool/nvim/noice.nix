@@ -5,7 +5,7 @@
     enable = true;
     lsp = {
       hover = {
-	enabled = false;
+        enabled = false;
       };
       #override = {
       #	"vim.lsp.util.convert_input_to_markdown_lines" = true;

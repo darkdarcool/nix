@@ -73,12 +73,12 @@
           home-manager.extraSpecialArgs = {
             inherit nix-colors;
             inherit nur;
-	    inherit inputs;
+            inherit inputs;
           };
 
           home-manager.users.darkdarcool = {
             imports = [
-	      inputs.hyprland.homeManagerModules.default 
+              inputs.hyprland.homeManagerModules.default
               inputs.nur.hmModules.nur
               inputs.nixvim.homeManagerModules.nixvim
               # ./hosts/darkdarcool/nvim.nix
