@@ -88,6 +88,17 @@
             })
 	    --]]
 
+	  local hover = function(_, result, ctx, config) 
+	    
+	  end
+	    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
+  underline = true
+})
+
+vim.cmd("hi FloatBorder guibg=NONE guifg=#F2E2C3")
+		require("pretty_hover").setup({})
+
 
 
 
@@ -110,6 +121,15 @@
           rev = "6d2ad945ddbc46f42a0a2e7618975a5f3d2e7dbe";
           hash = "sha256-6TeCbJV74kgm9yslPQp1k4KQv+FB+qHe5UVZN3adjko=";
         };
+      })
+      (pkgs.vimUtils.buildVimPlugin {
+	name = "pretty_hover";
+	src = pkgs.fetchFromGitHub {
+	  owner = "Fildo7525";
+	  repo = "pretty_hover";
+	  rev = "4c6e6f2d968e34cd9d2074b1d37b5b58c5362348";
+	  hash = "sha256-xpL4Lk3HFa6+FCOOC69Bqcxr62EDqu+WdvXd2kzI6Hk=";
+	};
       })
       #(pkgs.vimUtils.buildVimPlugin {
       #	name = "glow-hover";

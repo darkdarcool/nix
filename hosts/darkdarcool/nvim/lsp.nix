@@ -9,7 +9,7 @@
       # nil_ls.enable = true;
       zls = {
         enable = true;
-        package = inputs.zls.packages."${pkgs.system}".zls;
+        package = pkgs.zls-fixed; # inputs.zls.packages."${pkgs.system}".zls;
       };
 
     };

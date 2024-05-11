@@ -1,5 +1,7 @@
 { config, pkgs, inputs, ... }:
+
 {
+
   users.users.darkdarcool = {
     isNormalUser = true;
     description = "darkdarcool";
@@ -17,7 +19,8 @@
       ncurses5
       inputs.unstable.legacyPackages."${pkgs.system}".go
       inputs.unstable.legacyPackages."${pkgs.system}".rust-analyzer
-      inputs.zls.packages."${pkgs.system}".zls
+      # inputs.zls.packages."${pkgs.system}".zls
+      zls-fixed
       inputs.zig.packages."${pkgs.system}".master
       phinger-cursors
       cpio
