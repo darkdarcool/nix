@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./ags.nix
-    ./hyprland
+    ./conf.nix
+    ./hyprlock.nix
   ];
 }

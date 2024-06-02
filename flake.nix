@@ -21,7 +21,7 @@
     };
     zig.url = "github:mitchellh/zig-overlay";
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
@@ -41,6 +41,7 @@
     };
     howdy.url = "github:fufexan/nixpkgs/howdy";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # hyprlock.url = "github:hyprwm/Hyprlock";
     waybar.url = "github:Alexays/waybar";
     ags.url = "github:Aylur/ags";
     #ghostty = builtins.path { path = "./ghostty/flake.nix"; };
@@ -81,6 +82,7 @@
           home-manager.users.darkdarcool = {
             imports = [
               inputs.hyprland.homeManagerModules.default
+	      # inputs.hyprlock.homeManagerModules.hyprlock
               inputs.nur.hmModules.nur
               inputs.nixvim.homeManagerModules.nixvim
               # ./hosts/darkdarcool/nvim.nix
