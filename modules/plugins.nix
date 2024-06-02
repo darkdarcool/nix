@@ -9,18 +9,24 @@
     shell = pkgs.nushell;
 
     packages = with pkgs; [
+      #libdbusmenu-gtk3
+      #ags
+      nurl
+      #jetbrains-toolbox
+      #erlang_odbc
+      #gleam
       glow
       fastfetch
-      thunderbird
+      #thunderbird
       fontconfig
       direnv
       nh
-      termcap
+      #termcap
       ncurses5
       inputs.unstable.legacyPackages."${pkgs.system}".go
       inputs.unstable.legacyPackages."${pkgs.system}".rust-analyzer
-      # inputs.zls.packages."${pkgs.system}".zls
-      zls-fixed
+      inputs.zls.packages."${pkgs.system}".zls
+      # zls-fixed
       inputs.zig.packages."${pkgs.system}".master
       phinger-cursors
       cpio
@@ -44,11 +50,11 @@
       inputs.unstable.legacyPackages."${pkgs.system}".hyprcursor
       inputs.unstable.legacyPackages."${pkgs.system}".vimPlugins.base16-nvim
       # inputs.unstable.legacyPackages."${pkgs.system}".neovim
-      rose-pine-gtk-theme
-      rose-pine-icon-theme
-      firefoxpwa
-      carapace
-      lunar-client
+      #rose-pine-gtk-theme
+      #rose-pine-icon-theme
+      #firefoxpwa
+      #carapace
+      #lunar-client
       rustup
       nushell
       neofetch
@@ -72,13 +78,13 @@
       pkg-config
       playerctl
       wttrbar
-      wlsunset
+      #wlsunset
       swaynotificationcenter
       mako
       cli-visualizer
       cbonsai
-      steamPackages.steamcmd
-      steam-tui
+      #steamPackages.steamcmd
+      #steam-tui
       xfce.thunar
       xfce.ristretto
       openssl

@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
 {
-
+  imports = [
+    ./ags.nix
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
     # TODO: Add hyprland unstable
@@ -27,6 +29,7 @@
         dim_inactive = true;
         dim_strength = 0.2;
         rounding = 5;
+	#screen_shader = "${./dither.frag}";
       };
 
       input = {
@@ -126,11 +129,16 @@
         "SUPER, SUPER_L, exec, rofi -show drun -show-icons"
       ];
 
-      bindel = [
+      bindel = 
+	let playerctl = 
+	  "${pkgs.playerctl}/bin/playerctl"; 
+	in 
+      [
         ", XF86AudioRaiseVolume, exec, amixer set Master 1%+"
         ", XF86AudioLowerVolume, exec, amixer set Master 1%-"
         ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+	", XF86AudioPause, exec, ${playerctl} play-pause"
       ];
 
       bindl = [

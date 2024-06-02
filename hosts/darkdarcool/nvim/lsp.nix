@@ -9,14 +9,19 @@
       # nil_ls.enable = true;
       zls = {
         enable = true;
-        package = pkgs.zls-fixed; # inputs.zls.packages."${pkgs.system}".zls;
+        package = inputs.zls.packages."${pkgs.system}".zls;
       };
 
+      gleam.enable = true;
     };
     onAttach = ''
-            if client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-      	vim.lsp.inlay_hint.enable(bufnr, true)
-            end
+      require("inlay-hints").on_attach(client, bufnr) 
+      require("lsp_signature").on_attach({ 
+	bind = true,
+	handler_opts = {
+	  border = "rounded"
+	}
+      }, bufnr)
     '';
   };
 }

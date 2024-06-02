@@ -30,7 +30,8 @@
     nur.url = "github:nix-community/NUR";
     ghostty = {
       # url = "git+ssh://git@github.com/mitchellh/ghostty.git";
-      url = "git+ssh://git@github.com/mitchellh/ghostty.git?ref=main";
+      # url = "git+ssh://git@github.com/mitchellh/ghostty.git?ref=main";
+      url = "git+ssh://git@github.com/ghostty-org/ghostty";
       #path = "/etc/nixos/ghostty/flake.nix";#{builtins.path { path = "./ghostty/flake.nix"; }}.path;
       #type = "path";
     };
@@ -41,6 +42,7 @@
     howdy.url = "github:fufexan/nixpkgs/howdy";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     waybar.url = "github:Alexays/waybar";
+    ags.url = "github:Aylur/ags";
     #ghostty = builtins.path { path = "./ghostty/flake.nix"; };
   };
 
