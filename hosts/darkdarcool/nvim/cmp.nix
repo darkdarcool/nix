@@ -80,20 +80,20 @@
       ];
     };
 
-    extraOptions = {              
+    extraOptions = {
       completion = {
         completeopt = "menu,menuone,noinsert";
       };
       window = {
         documentation = {
           # border = "solid";
-	  border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
+          border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
           # winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None";
         };
         completion = {
           side_padding = 0;
-	  border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
-	  winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None";
+          border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
+          winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None";
         };
       };
       formatting = {

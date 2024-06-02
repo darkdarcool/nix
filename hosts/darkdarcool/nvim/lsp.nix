@@ -15,13 +15,13 @@
       gleam.enable = true;
     };
     onAttach = ''
-      require("inlay-hints").on_attach(client, bufnr) 
-      require("lsp_signature").on_attach({ 
-	bind = true,
-	handler_opts = {
-	  border = "rounded"
-	}
-      }, bufnr)
+            require("inlay-hints").on_attach(client, bufnr) 
+            require("lsp_signature").on_attach({ 
+      	bind = true,
+      	handler_opts = {
+      	  border = "rounded"
+      	}
+            }, bufnr)
     '';
   };
 }

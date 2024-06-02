@@ -55,31 +55,31 @@
         };
       })
       (pkgs.vimUtils.buildVimPlugin {
-	name = "pretty_hover";
-	src = pkgs.fetchFromGitHub {
-	  owner = "Fildo7525";
-	  repo = "pretty_hover";
-	  rev = "4c6e6f2d968e34cd9d2074b1d37b5b58c5362348";
-	  hash = "sha256-xpL4Lk3HFa6+FCOOC69Bqcxr62EDqu+WdvXd2kzI6Hk=";
-	};
+        name = "pretty_hover";
+        src = pkgs.fetchFromGitHub {
+          owner = "Fildo7525";
+          repo = "pretty_hover";
+          rev = "4c6e6f2d968e34cd9d2074b1d37b5b58c5362348";
+          hash = "sha256-xpL4Lk3HFa6+FCOOC69Bqcxr62EDqu+WdvXd2kzI6Hk=";
+        };
       })
       (pkgs.vimUtils.buildVimPlugin {
-	name = "inlay-hints";
-	src = pkgs.fetchFromGitHub {
-	  owner = "MysticalDevil";
-	  repo = "inlay-hints.nvim";
-	  rev = "0dafb2cc1899bcb29fa5e65788aedcbd213a3591";
-	  hash = "sha256-5d+j6b6V/VuStlfZWZ2PdYE1QaoMQuArHAuVTyCZjsE="; 
-	};
+        name = "inlay-hints";
+        src = pkgs.fetchFromGitHub {
+          owner = "MysticalDevil";
+          repo = "inlay-hints.nvim";
+          rev = "0dafb2cc1899bcb29fa5e65788aedcbd213a3591";
+          hash = "sha256-5d+j6b6V/VuStlfZWZ2PdYE1QaoMQuArHAuVTyCZjsE=";
+        };
       })
       (pkgs.vimUtils.buildVimPlugin {
-	name = "lsp_signature";
-	src = pkgs.fetchFromGitHub {
-	  owner = "ray-x";
-	  repo = "lsp_signature.nvim";
-	  rev = "5babe266b99a273a866525baaaee34c603997b8b";
-	  hash = "sha256-lS3WYly9MbZtew4J16OLn/I7KJGNm9iEcrJ7CEU/Hzc=";
-	};
+        name = "lsp_signature";
+        src = pkgs.fetchFromGitHub {
+          owner = "ray-x";
+          repo = "lsp_signature.nvim";
+          rev = "5babe266b99a273a866525baaaee34c603997b8b";
+          hash = "sha256-lS3WYly9MbZtew4J16OLn/I7KJGNm9iEcrJ7CEU/Hzc=";
+        };
       })
 
       #(pkgs.vimUtils.buildVimPlugin {

@@ -1,5 +1,5 @@
 { stdenvNoCC
-, stdenv 
+, stdenv
 , fetchFromGitHub
 , pkgs
 , inputs
@@ -19,8 +19,8 @@ pkgs.stdenv.mkDerivation rec {
     repo = "zls";
     rev = "6370a2a3136cf33d2f68bb885940621748937bbb";
     hash = "sha256-7zutw4Y5sP3bV7fz+KnGm+lT9zXJRRUF6LKyRHQMT+k=";
-  };  
-  buildInputs = [ inputs.zig.packages."${pkgs.system}".master ]; 
+  };
+  buildInputs = [ inputs.zig.packages."${pkgs.system}".master ];
   dontConfigure = true;
   dontFixup = true;
   buildPhase = ''

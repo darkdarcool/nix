@@ -29,7 +29,7 @@
         dim_inactive = true;
         dim_strength = 0.2;
         rounding = 5;
-	#screen_shader = "${./dither.frag}";
+        #screen_shader = "${./dither.frag}";
       };
 
       input = {
@@ -129,17 +129,18 @@
         "SUPER, SUPER_L, exec, rofi -show drun -show-icons"
       ];
 
-      bindel = 
-	let playerctl = 
-	  "${pkgs.playerctl}/bin/playerctl"; 
-	in 
-      [
-        ", XF86AudioRaiseVolume, exec, amixer set Master 1%+"
-        ", XF86AudioLowerVolume, exec, amixer set Master 1%-"
-        ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
-        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-	", XF86AudioPause, exec, ${playerctl} play-pause"
-      ];
+      bindel =
+        let
+          playerctl =
+            "${pkgs.playerctl}/bin/playerctl";
+        in
+        [
+          ", XF86AudioRaiseVolume, exec, amixer set Master 1%+"
+          ", XF86AudioLowerVolume, exec, amixer set Master 1%-"
+          ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+          ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+          ", XF86AudioPause, exec, ${playerctl} play-pause"
+        ];
 
       bindl = [
         ", XF86AudioMute, exec, amixer set Master toggle"
