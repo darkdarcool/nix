@@ -85,7 +85,7 @@
 
       misc = {
         force_default_wallpaper = 0;
-	disable_hyprland_logo = true;
+        disable_hyprland_logo = true;
         vfr = true;
       };
 
@@ -94,7 +94,7 @@
         "$mainMod, M, exit,"
         "$mainMod, V, togglefloating,"
         "$mainMod, J, togglesplit,"
-	"$mainMod, L, exec, hyprlock"
+        "$mainMod, L, exec, hyprlock"
         "$mainMod SHIFT, N, exec, swaync-client -t -sw"
         ''SUPER_SHIFT, S, exec, grim -g "$(slurp -d)" - | wl-copy''
         "ALT, Tab, cyclenext,"
@@ -163,8 +163,8 @@
         "hyprpaper"
         "ssh-agent -s"
         "mako"
-	# lock hyprland on open
-	"hyprlock"
+        # lock hyprland on open
+        "hyprlock"
       ];
     };
   };

@@ -1,7 +1,7 @@
 { config, inputs, pkgs, ... }:
 
 {
-  security.pam.services.hyprlock = {};
+  security.pam.services.hyprlock = { };
   time.timeZone = "America/New_York";
 
   # Select internationalisation properties.

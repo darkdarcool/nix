@@ -82,7 +82,7 @@
           home-manager.users.darkdarcool = {
             imports = [
               inputs.hyprland.homeManagerModules.default
-	      # inputs.hyprlock.homeManagerModules.hyprlock
+              # inputs.hyprlock.homeManagerModules.hyprlock
               inputs.nur.hmModules.nur
               inputs.nixvim.homeManagerModules.nixvim
               # ./hosts/darkdarcool/nvim.nix
