@@ -34,12 +34,12 @@
       cmake
       zed-editor
       gimp
-      vencord
-      vesktop
-      swww
+      #vencord
+      #vesktop
+      #swww
       nil
       firefox
-      kitty
+      #kitty
       wl-clipboard
       copyq
       yazi
@@ -48,7 +48,7 @@
       inputs.unstable.legacyPackages."${pkgs.system}".deno
       inputs.unstable.legacyPackages."${pkgs.system}".hyprlock
       inputs.unstable.legacyPackages."${pkgs.system}".hyprcursor
-      inputs.unstable.legacyPackages."${pkgs.system}".vimPlugins.base16-nvim
+      #inputs.unstable.legacyPackages."${pkgs.system}".vimPlugins.base16-nvim
       # inputs.unstable.legacyPackages."${pkgs.system}".neovim
       #rose-pine-gtk-theme
       #rose-pine-icon-theme
@@ -64,7 +64,7 @@
       vscode
       gh
       cloudflared
-      greetd.tuigreet
+      #greetd.tuigreet
       wofi
       bat
       eza
@@ -79,7 +79,7 @@
       playerctl
       wttrbar
       #wlsunset
-      swaynotificationcenter
+      #swaynotificationcenter
       mako
       cli-visualizer
       cbonsai
