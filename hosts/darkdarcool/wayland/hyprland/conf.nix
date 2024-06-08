@@ -138,7 +138,8 @@
           ", XF86AudioLowerVolume, exec, amixer set Master 1%-"
           ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
           ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-          ", XF86AudioPause, exec, ${playerctl} play-pause"
+          ", XF86AudioPlay, exec, ${playerctl} play-pause"
+	  ", XF86AudioNext, exec, ${playerctl} next"
         ];
 
       bindl = [
