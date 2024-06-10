@@ -960,6 +960,7 @@
         "nur": "nur",
         "rose-pine-hyprcursor": "rose-pine-hyprcursor",
         "sf-mono-liga-src": "sf-mono-liga-src",
+        "themes": "themes",
         "unstable": "unstable",
         "waybar": "waybar",
         "zig": "zig_2",
@@ -1119,6 +1120,21 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "themes": {
+      "locked": {
+        "lastModified": 1715166503,
+        "narHash": "sha256-eG3+PTzJntnMrO9J2fCtshU+XX18uI8iIjDKU9NkJXA=",
+        "owner": "RGBCube",
+        "repo": "ThemeNix",
+        "rev": "c188d0d729841f71f576dfb544e70c0340bf52a8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "RGBCube",
+        "repo": "ThemeNix",
         "type": "github"
       }
     },

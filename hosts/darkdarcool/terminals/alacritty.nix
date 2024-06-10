@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, theme, ... }:
 
 {
   programs.alacritty = {
@@ -19,7 +19,7 @@
       font = {
         size = 9.5;
         normal = {
-          family = "MesloLGSDZ Nerd Font Mono";
+          family = theme.fonts.serif; # "MesloLGSDZ Nerd Font Mono";
           style = "Regular";
         };
       };
@@ -36,26 +36,27 @@
         };
       };
 
-      # TODO: Inline this in a style
       colors = {
         bright = {
-          black = "#393939";
-          blue = "#33b1ff";
-          cyan = "#3ddbd9";
-          green = "#42be65";
-          magenta = "#ff7eb6";
-          red = "#ee5396";
-          white = "#ffffff";
+	  black = theme.colors.withHashtag.base02;
+	  blue = theme.colors.withHashtag.base09;
+	  cyan = theme.colors.withHashtag.base08;
+	  green = theme.colors.withHashtag.base0D;
+	  magenta = theme.colors.withHashtag.base0C;
+	  red = theme.colors.withHashtag.base0A;
+	  white = theme.colors.withHashtag.base06;
+	  # Our theme doesn't have a yellow
           yellow = "#ffe97b";
         };
         normal = {
-          black = "#262626";
-          blue = "#33b1ff";
-          cyan = "#3ddbd9";
-          green = "#42be65";
-          magenta = "#ff7eb6";
-          red = "#ee5396";
-          white = "#dde1e6";
+	  black = theme.colors.withHashtag.base01;
+	  blue = theme.colors.withHashtag.base09;
+	  cyan = theme.colors.withHashtag.base08;
+	  green = theme.colors.withHashtag.base0D;
+	  magenta = theme.colors.withHashtag.base0C;
+	  red = theme.colors.withHashtag.base0A;
+	  white = theme.colors.withHashtag.base05;
+	  # Our theme doesn't have a yellow
           yellow = "#ffe97b";
         };
         primary = {

@@ -76,10 +76,9 @@
   #       video.dark_threshold = 90;
   #     };
   #   };
-  #
+  # 
   #   services.linux-enable-ir-emitter = {
   #     enable = true;
   #     package = inputs.howdy.legacyPackages.${pkgs.system}.linux-enable-ir-emitter;
   #   };
-
 }

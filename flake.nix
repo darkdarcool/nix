@@ -11,7 +11,6 @@
       flake = false;
     };
     nixvim = {
-      #url = "github:nix-community/nixvim/nixos-23.11";
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -29,11 +28,7 @@
     nix-colors.url = "github:misterio77/nix-colors";
     nur.url = "github:nix-community/NUR";
     ghostty = {
-      # url = "git+ssh://git@github.com/mitchellh/ghostty.git";
-      # url = "git+ssh://git@github.com/mitchellh/ghostty.git?ref=main";
       url = "git+ssh://git@github.com/ghostty-org/ghostty";
-      #path = "/etc/nixos/ghostty/flake.nix";#{builtins.path { path = "./ghostty/flake.nix"; }}.path;
-      #type = "path";
     };
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
@@ -41,13 +36,16 @@
     };
     howdy.url = "github:fufexan/nixpkgs/howdy";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    # hyprlock.url = "github:hyprwm/Hyprlock";
     waybar.url = "github:Alexays/waybar";
     ags.url = "github:Aylur/ags";
-    #ghostty = builtins.path { path = "./ghostty/flake.nix"; };
+
+    themes.url = "github:RGBCube/ThemeNix";
   };
 
-  outputs = { self, nixpkgs, nixvim, nur, nix-colors, ghostty, home-manager, flake-parts, auto-cpufreq, howdy, zls, zig, hyprland, ... }@inputs: {
+  outputs = { self, nixpkgs, nixvim, nur, nix-colors, ghostty, home-manager, flake-parts, auto-cpufreq, howdy, zls, zig, hyprland, themes, ... }@inputs: 
+    let
+      theme = themes.oxocarbon-dark;
+    in {
     # default is nixos
     nixosConfigurations.darkdarcool = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
@@ -77,6 +75,14 @@
             inherit nix-colors;
             inherit nur;
             inherit inputs;
+	    theme = {
+	      colors = theme;
+	      fonts = {
+		monospace = "Liga SFMono Nerd Font";
+		serif = "MesloLGSDZ Nerd Font";
+		code = "JetBrainsMono Nerd Font Mono";
+	      };
+	    };
           };
 
           home-manager.users.darkdarcool = {

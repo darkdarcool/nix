@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, theme, ... }:
 
 {
   imports = [
@@ -26,4 +26,8 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  programs.bat = {
+    config.theme = "base16";
+    themes.base16.src = pkgs.writeText "base16.oxocarbon" theme.colors;
+  };
 }
