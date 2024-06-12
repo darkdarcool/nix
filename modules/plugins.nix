@@ -9,6 +9,7 @@
     shell = pkgs.nushell;
 
     packages = with pkgs; [
+      brave
       #libdbusmenu-gtk3
       #ags
       nurl

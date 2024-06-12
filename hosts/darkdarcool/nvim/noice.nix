@@ -6,6 +6,11 @@
     lsp = {
       hover = {
         enabled = false;
+	opts = {
+	  border = {
+	    style = "rounded";
+	  };
+	};
       };
       signature = {
         enabled = false;
@@ -21,6 +26,12 @@
         win_options = {
           winblend = 0;
         };
+      };
+      
+      hover = {
+	border = {
+	  style = "rounded";
+	};
       };
     };
   };

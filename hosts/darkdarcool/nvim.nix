@@ -34,6 +34,8 @@
 	border = "rounded",
 	underline = true
       })
+
+      vim.cmd("hi FloatBorder guifg=#acacac guibg=#161616")
     '';
 
     plugins = {
