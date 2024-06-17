@@ -9,20 +9,20 @@
     plugins = [ inputs.hycov.packages.${pkgs.system}.hycov ];
 
     extraConfig = ''
-      bind = ALT,tab,hycov:toggleoverview
-                bind=ALT,left,hycov:movefocus,l
-                bind=ALT,right,hycov:movefocus,r
-                bind=ALT,up,hycov:movefocus,u
-                bind=ALT,down,hycov:movefocus,d
+		bind = ALT, tab, hycov:toggleoverview
+    	bind = ALT, left, hycov:movefocus, l
+        bind = ALT, right, hycov:movefocus, r
+        bind = ALT, up, hycov:movefocus, u
+        bind = ALT, down, hycov:movefocus, d
 
-                plugin {
-                    hycov {
-                      overview_gappo = 60 #gaps width from screen
-                      overview_gappi = 24 #gaps width from clients
-                	    hotarea_size = 10 #hotarea size in bottom left,10x10
-                	    enable_hotarea = 1 # enable mouse cursor hotarea
-                    }
-                }
+        plugin {
+        	hycov {
+        		overview_gappo = 60 #gaps width from screen
+            	overview_gappi = 24 #gaps width from clients
+                hotarea_size = 10 #hotarea size in bottom left,10x10
+                enable_hotarea = 1 # enable mouse cursor hotarea
+            }
+    	}
     '';
 
     settings = {
@@ -133,19 +133,20 @@
 
       bindr = [ "SUPER, SUPER_L, exec, rofi -show drun -show-icons" ];
 
-      bindel = let playerctl = "${pkgs.playerctl}/bin/playerctl";
-      in [
-        ", XF86AudioRaiseVolume, exec, amixer set Master 1%+"
-        ", XF86AudioLowerVolume, exec, amixer set Master 1%-"
-        ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
-        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-        ", XF86AudioPlay, exec, ${playerctl} play-pause"
-        ", XF86AudioNext, exec, ${playerctl} next"
-      ];
+      bindel = 
+	  	let playerctl = "${pkgs.playerctl}/bin/playerctl";
+      	in [
+        	", XF86AudioRaiseVolume, exec, amixer set Master 1%+"
+        	", XF86AudioLowerVolume, exec, amixer set Master 1%-"
+        	", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+        	", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+        	", XF86AudioPlay, exec, ${playerctl} play-pause"
+        	", XF86AudioNext, exec, ${playerctl} next"
+      	];
 
       bindl = [
         ", XF86AudioMute, exec, amixer set Master toggle"
-        ",switch:Lid Switch,exec,hyprlock"
+        ", switch:Lid Switch, exec, hyprlock"
       ];
 
       windowrulev2 = [
