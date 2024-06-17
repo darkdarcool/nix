@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./conf.nix
-    ./hyprlock.nix
-  ];
+  imports = [ ./conf.nix ./hyprlock.nix ];
 }

@@ -25,17 +25,39 @@
     # Map leader to SPACE
     globals.mapleader = " ";
 
-    extraConfigLua = '' 
-      -- get rid of the sign column (it moves text and thats a no no)
-      vim.opt.signcolumn = "no"
-      
-      -- rounded hover doc (its 10x better)
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-	border = "rounded",
-	underline = true
-      })
+    extraConfigLua = ''
+            -- get rid of the sign column (it moves text and thats a no no)
+            vim.opt.signcolumn = "no"
+            
+            -- rounded hover doc (its 10x better)
+            vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+      	border = "rounded",
+      	underline = true
+            })
 
-      vim.cmd("hi FloatBorder guifg=#acacac guibg=#161616")
+            vim.cmd("hi FloatBorder guifg=#acacac guibg=#161616")
+
+            vim.opt.title = true
+            vim.opt.titlelen = 0 -- do not shorten title
+            --[[vim.opt.titlestring = 'nvim %{expand("%:p")}'
+            function getHostname()
+          local f = io.popen ("/bin/hostname")
+          local hostname = f:read("*a") or ""
+          f:close()
+          hostname =string.gsub(hostname, "\n$", "")
+          return hostname
+      end
+      --]]
+
+            vim.api.nvim_create_autocmd("BufEnter", { 
+      	pattern = "*",
+      	callback = function()
+      	  local path = vim.fn.expand("%:p")
+      	  -- replace /home/darkdarcool with ~
+      	  path = string.gsub(path, "/home/darkdarcool", "~")
+      	  vim.opt.titlestring = "nvim " .. path
+      	end
+            })
     '';
 
     plugins = {

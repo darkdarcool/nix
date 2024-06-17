@@ -24,9 +24,7 @@
         };
       };
 
-      shell = {
-        program = "tmux";
-      };
+      shell = { program = "tmux"; };
 
       window = {
         opacity = 1;
@@ -38,25 +36,25 @@
 
       colors = {
         bright = {
-	  black = theme.colors.withHashtag.base02;
-	  blue = theme.colors.withHashtag.base09;
-	  cyan = theme.colors.withHashtag.base08;
-	  green = theme.colors.withHashtag.base0D;
-	  magenta = theme.colors.withHashtag.base0C;
-	  red = theme.colors.withHashtag.base0A;
-	  white = theme.colors.withHashtag.base06;
-	  # Our theme doesn't have a yellow
+          black = theme.colors.withHashtag.base02;
+          blue = theme.colors.withHashtag.base09;
+          cyan = theme.colors.withHashtag.base08;
+          green = theme.colors.withHashtag.base0D;
+          magenta = theme.colors.withHashtag.base0C;
+          red = theme.colors.withHashtag.base0A;
+          white = theme.colors.withHashtag.base06;
+          # Our theme doesn't have a yellow
           yellow = "#ffe97b";
         };
         normal = {
-	  black = theme.colors.withHashtag.base01;
-	  blue = theme.colors.withHashtag.base09;
-	  cyan = theme.colors.withHashtag.base08;
-	  green = theme.colors.withHashtag.base0D;
-	  magenta = theme.colors.withHashtag.base0C;
-	  red = theme.colors.withHashtag.base0A;
-	  white = theme.colors.withHashtag.base05;
-	  # Our theme doesn't have a yellow
+          black = theme.colors.withHashtag.base01;
+          blue = theme.colors.withHashtag.base09;
+          cyan = theme.colors.withHashtag.base08;
+          green = theme.colors.withHashtag.base0D;
+          magenta = theme.colors.withHashtag.base0C;
+          red = theme.colors.withHashtag.base0A;
+          white = theme.colors.withHashtag.base05;
+          # Our theme doesn't have a yellow
           yellow = "#ffe97b";
         };
         primary = {

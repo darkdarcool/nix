@@ -20,6 +20,7 @@
     #  "bash"
     #];
     ensureInstalled = "all";
+    disabledLanguages = [ "markdown" ];
     indent = true;
   };
 }

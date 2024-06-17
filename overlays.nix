@@ -10,12 +10,13 @@
         src = inputs.sf-mono-liga-src;
         dontConfigure = true;
         installPhase = ''
-          		 mkdir -p $out/share/fonts/opentype
-          		 cp -R $src/*.otf $out/share/fonts/opentype/
+          mkdir -p $out/share/fonts/opentype
+          cp -R $src/*.otf $out/share/fonts/opentype/
         '';
       };
 
-      phocus-oxocarbon = prev.callPackage ./derivations/phocus-oxocarbon.nix { };
+      phocus-oxocarbon =
+        prev.callPackage ./derivations/phocus-oxocarbon.nix { };
       # zls-fixed = prev.callPackage ./derivations/zls-fixed.nix { pkgs = pkgs; inputs = inputs; };
     })
 

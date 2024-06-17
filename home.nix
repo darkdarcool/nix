@@ -14,8 +14,7 @@
   home.homeDirectory = "/home/darkdarcool";
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
-  home.packages = [
-  ];
+  home.packages = [ ];
 
   home.file = { };
 

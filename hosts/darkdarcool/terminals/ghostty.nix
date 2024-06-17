@@ -1,14 +1,11 @@
 { config, pkgs, inputs, lib, theme, ... }:
 
-let
-  kvOps = {
-    listsAsDuplicateKeys = true;
-  };
-in
-{
+let kvOps = { listsAsDuplicateKeys = true; };
+in {
   home.file."${config.xdg.configHome}/ghostty/config" = {
     text = lib.generators.toKeyValue kvOps {
-      background = theme.colors.withHashtag.base00; 
+      background = theme.colors.withHashtag.base00;
+      background-opacity = 1;
       foreground = "#ffffff";
       window-decoration = false;
       clipboard-paste-protection = false;
@@ -18,13 +15,8 @@ in
       # font-family = "MesloLGSDZ Nerd Font";
       font-family = theme.fonts.code; # "JetBrainsMono Nerd Font Mono";
       font-size = 10;
-      font-variation = [
-	"wght=700"
-      ];
-      font-feature = [
-        "-calt"
-        "-liga"
-      ];
+      font-variation = [ "wght=700" ];
+      font-feature = [ "-calt" "-liga" ];
       font-thicken = true;
       cursor-style = "bar";
       cursor-style-blink = true;

@@ -4,43 +4,36 @@
 
 { config, pkgs, inputs, ... }:
 
-
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./modules/plugins.nix
-      ./modules/programs.nix
-      ./modules/system.nix
-      ./modules/env.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./modules/plugins.nix
+    ./modules/programs.nix
+    ./modules/system.nix
+    ./modules/env.nix
+  ];
 
   # Sudo
-  security.sudo.extraRules = [
-    {
-      users = [ "darkdarcool" ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" "SETENV" ]; # "SETENV" # Adding the following could be a good idea
-        }
-      ];
-    }
-  ];
+  security.sudo.extraRules = [{
+    users = [ "darkdarcool" ];
+    commands = [{
+      command = "ALL";
+      options = [
+        "NOPASSWD"
+        "SETENV"
+      ]; # "SETENV" # Adding the following could be a good idea
+    }];
+  }];
 
   # If you hate yourself
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-  ];
-
+  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -48,7 +41,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "unstable"; #"23.11"; # Did you read the comment?
+  system.stateVersion = "unstable"; # "23.11"; # Did you read the comment?
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "Meslo" "JetBrainsMono" ]; })
@@ -56,15 +49,14 @@
   ];
 
   hardware.bluetooth.settings = {
-    General = {
-      Enable = "Source,Sink,Media,Socket";
-    };
+    General = { Enable = "Source,Sink,Media,Socket"; };
   };
 
   nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
-    };
+    nur = import (builtins.fetchTarball
+      "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+        inherit pkgs;
+      };
   };
 
   programs.auto-cpufreq.enable = true;
@@ -84,8 +76,12 @@
   };
 
   nix.settings = {
-    substituters = [ "https://hyprland.cachix.org" "https://ghostty.cachix.org" ];
-    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns=" ];
+    substituters =
+      [ "https://hyprland.cachix.org" "https://ghostty.cachix.org" ];
+    trusted-public-keys = [
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
+    ];
   };
 
   nix.settings.sandbox = false;

@@ -49,8 +49,6 @@
     };
   };
 
-
-
   programs.nixvim.plugins.cmp = {
     enable = true;
     autoEnableSources = true;
@@ -58,15 +56,8 @@
     settings = {
       mapping = {
         "<Tab>" = "cmp.mapping.confirm({ select = false })";
-        "<CR>" = ''
-          						function(fallback)
-          							if cmp.visible() then
-          								cmp.select_next_item()
-          							else 
-          								fallback()
-          							end
-          						end
-          				'';
+        "<CR>" =
+          "		function(fallback)\n			if cmp.visible() then\n				cmp.select_next_item()\n			else \n				fallback()\n			end\n		end\n";
       };
 
       sources = [
@@ -81,9 +72,7 @@
     };
 
     extraOptions = {
-      completion = {
-        completeopt = "menu,menuone,noinsert";
-      };
+      completion = { completeopt = "menu,menuone,noinsert"; };
       window = {
         documentation = {
           # border = "solid";
@@ -93,7 +82,8 @@
         completion = {
           side_padding = 0;
           border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
-          winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None";
+          winhighlight =
+            "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None";
         };
       };
       formatting = {
@@ -116,17 +106,11 @@
     # Completions on the nvim cmdline 
     cmdline = {
       ":" = {
-        mapping = {
-          __raw = "cmp.mapping.preset.cmdline()";
-        };
+        mapping = { __raw = "cmp.mapping.preset.cmdline()"; };
 
-        sources = [
-          { name = "path"; }
-          { name = "cmdline"; }
-        ];
+        sources = [ { name = "path"; } { name = "cmdline"; } ];
       };
     };
   };
-
 
 }

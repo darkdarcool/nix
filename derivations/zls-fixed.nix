@@ -1,10 +1,4 @@
-{ stdenvNoCC
-, stdenv
-, fetchFromGitHub
-, pkgs
-, inputs
-, ...
-}:
+{ stdenvNoCC, stdenv, fetchFromGitHub, pkgs, inputs, ... }:
 pkgs.stdenv.mkDerivation rec {
   pname = "zls-fixed";
   version = "0.13.0";

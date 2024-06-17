@@ -1,15 +1,35 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   wayland.windowManager.hyprland = {
     enable = true;
     # TODO: Add hyprland unstable
-    # package = inputs.hyprland;
+    #package = inputs.hyprland;
+
+    plugins = [ inputs.hycov.packages.${pkgs.system}.hycov ];
+
+    extraConfig = ''
+      bind = ALT,tab,hycov:toggleoverview
+                bind=ALT,left,hycov:movefocus,l
+                bind=ALT,right,hycov:movefocus,r
+                bind=ALT,up,hycov:movefocus,u
+                bind=ALT,down,hycov:movefocus,d
+
+                plugin {
+                    hycov {
+                      overview_gappo = 60 #gaps width from screen
+                      overview_gappi = 24 #gaps width from clients
+                	    hotarea_size = 10 #hotarea size in bottom left,10x10
+                	    enable_hotarea = 1 # enable mouse cursor hotarea
+                    }
+                }
+    '';
+
     settings = {
       "$mainMod" = "SUPER";
       decoration = {
         blur = {
-          enabled = false;
+          enabled = true;
           size = 4;
           passes = 1;
           noise = 0;
@@ -79,9 +99,7 @@
         preserve_split = "yes";
       };
 
-      master = {
-        new_is_master = true;
-      };
+      master = { new_is_master = true; };
 
       misc = {
         force_default_wallpaper = 0;
@@ -95,52 +113,35 @@
         "$mainMod, V, togglefloating,"
         "$mainMod, J, togglesplit,"
         "$mainMod, L, exec, hyprlock"
+        "$mainMod, W, exec, pkill waybar && hyprctl dispatch exec waybar"
         "$mainMod SHIFT, N, exec, swaync-client -t -sw"
         ''SUPER_SHIFT, S, exec, grim -g "$(slurp -d)" - | wl-copy''
-        "ALT, Tab, cyclenext,"
-        "ALT, Tab, bringactivetotop,"
-      ]
-      ++ (
-        builtins.concatLists (builtins.genList
-          (
-            x:
-            let
-              ws =
-                let
-                  c = (x + 1) / 10;
-                in
-                builtins.toString (x + 1 - (c * 10));
-            in
-            [
-              "$mainMod, ${ws}, workspace, ${toString (x + 1)}"
-              "$mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-            ]
-          )
-          10)
-      );
+        #"ALT, Tab, cyclenext,"
+        #"ALT, Tab, bringactivetotop,"
+        #"ALT,tab,overview:toggle"
+      ] ++ (builtins.concatLists (builtins.genList (x:
+        let ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
+        in [
+          "$mainMod, ${ws}, workspace, ${toString (x + 1)}"
+          "$mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+        ]) 10));
 
       bindm = [
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
       ];
 
-      bindr = [
-        "SUPER, SUPER_L, exec, rofi -show drun -show-icons"
-      ];
+      bindr = [ "SUPER, SUPER_L, exec, rofi -show drun -show-icons" ];
 
-      bindel =
-        let
-          playerctl =
-            "${pkgs.playerctl}/bin/playerctl";
-        in
-        [
-          ", XF86AudioRaiseVolume, exec, amixer set Master 1%+"
-          ", XF86AudioLowerVolume, exec, amixer set Master 1%-"
-          ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
-          ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-          ", XF86AudioPlay, exec, ${playerctl} play-pause"
-	  ", XF86AudioNext, exec, ${playerctl} next"
-        ];
+      bindel = let playerctl = "${pkgs.playerctl}/bin/playerctl";
+      in [
+        ", XF86AudioRaiseVolume, exec, amixer set Master 1%+"
+        ", XF86AudioLowerVolume, exec, amixer set Master 1%-"
+        ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+        ", XF86AudioPlay, exec, ${playerctl} play-pause"
+        ", XF86AudioNext, exec, ${playerctl} next"
+      ];
 
       bindl = [
         ", XF86AudioMute, exec, amixer set Master toggle"
@@ -152,13 +153,13 @@
         "center, class:firefox"
         "size 800 600, class:kitty"
         "center, class:kitty"
-        ''float, title:^(Picture in picture)$''
-        ''pin, title:^(Picture in picture)$''
+        "float, title:^(Picture in picture)$"
+        "pin, title:^(Picture in picture)$"
       ];
 
       exec-once = [
         "copyq --start-server"
-        "waybar"
+        "sleep 3 && waybar"
         # "swaync"
         "sudo warp-svc"
         "hyprpaper"

@@ -1,7 +1,7 @@
 { config, pkgs, inputs, ... }:
 
 {
-
+  hardware.opengl.enable = true;
   users.users.darkdarcool = {
     isNormalUser = true;
     description = "darkdarcool";
@@ -9,6 +9,15 @@
     shell = pkgs.nushell;
 
     packages = with pkgs; [
+      nixfmt
+      wireplumber
+      iniparser
+      obs-studio
+      wayfarer
+      cava
+      kooha
+      libGLU
+      inetutils
       brave
       #libdbusmenu-gtk3
       #ags
@@ -36,7 +45,7 @@
       zed-editor
       gimp
       #vencord
-      #vesktop
+      vesktop
       #swww
       nil
       firefox

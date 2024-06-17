@@ -1,8 +1,4 @@
-{ stdenvNoCC
-, fetchFromGitHub
-, nodePackages
-,
-}:
+{ stdenvNoCC, fetchFromGitHub, nodePackages, }:
 stdenvNoCC.mkDerivation rec {
   pname = "phocus-oxocarbon";
   version = "0cf0eb35a927bffcb797db8a074ce240823d92de";

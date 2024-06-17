@@ -5,22 +5,12 @@
     enable = true;
 
     filters = {
-      custom = [
-        "node_modules"
-        "target"
-        "result"
-        ".git/"
-        "zig-cache"
-        "zig-out"
-      ];
+      custom =
+        [ "node_modules" "target" "result" ".git/" "zig-cache" "zig-out" ];
       dotfiles = true;
     };
 
-    actions = {
-      openFile = {
-        quitOnOpen = true;
-      };
-    };
+    actions = { openFile = { quitOnOpen = true; }; };
 
     view = {
       float = {

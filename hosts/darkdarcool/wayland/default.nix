@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./ags.nix
-    ./hyprland
-  ];
+  imports = [ ./ags.nix ./hyprland ];
 }

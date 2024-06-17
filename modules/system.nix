@@ -54,9 +54,7 @@
     '';
   };
 
-  hardware.bluetooth = {
-    enable = true;
-  };
+  hardware.bluetooth = { enable = true; };
 
   # Workaround until this hits unstable:
   # https://github.com/NixOS/nixpkgs/issues/113628
