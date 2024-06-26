@@ -16,7 +16,7 @@
     #};
     iconTheme = {
       name = "WhiteSur-dark";
-      package = pkgs.whitesur-icon-theme;
+      package = pkgs.morewaita-icon-theme; # pkgs.whitesur-icon-theme;
     };
 
     theme = {

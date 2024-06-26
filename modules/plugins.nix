@@ -9,13 +9,16 @@
     shell = pkgs.nushell;
 
     packages = with pkgs; [
+			sbctl
+      xdg-desktop-portal-hyprland
+      #pipewire
       nixfmt
-      wireplumber
-      iniparser
+      #wireplumber
+      #iniparser
       obs-studio
-      wayfarer
+      #wayfarer
       cava
-      kooha
+      #kooha
       libGLU
       inetutils
       brave
@@ -33,15 +36,15 @@
       nh
       #termcap
       ncurses5
-      inputs.unstable.legacyPackages."${pkgs.system}".go
-      inputs.unstable.legacyPackages."${pkgs.system}".rust-analyzer
-      inputs.zls.packages."${pkgs.system}".zls
+      #inputs.unstable.legacyPackages."${pkgs.system}".go
+      #inputs.unstable.legacyPackages."${pkgs.system}".rust-analyzer
+      #inputs.zls.packages."${pkgs.system}".zls
       # zls-fixed
-      inputs.zig.packages."${pkgs.system}".master
+      #inputs.zig.packages."${pkgs.system}".master
       phinger-cursors
       cpio
       meson
-      cmake
+      #cmake
       zed-editor
       gimp
       #vencord
@@ -52,10 +55,10 @@
       #kitty
       wl-clipboard
       copyq
-      yazi
+      #yazi
       # bun 
-      inputs.unstable.legacyPackages."${pkgs.system}".bun
-      inputs.unstable.legacyPackages."${pkgs.system}".deno
+      #inputs.unstable.legacyPackages."${pkgs.system}".bun
+      #inputs.unstable.legacyPackages."${pkgs.system}".deno
       inputs.unstable.legacyPackages."${pkgs.system}".hyprlock
       inputs.unstable.legacyPackages."${pkgs.system}".hyprcursor
       #inputs.unstable.legacyPackages."${pkgs.system}".vimPlugins.base16-nvim
@@ -65,7 +68,7 @@
       #firefoxpwa
       #carapace
       #lunar-client
-      rustup
+      #rustup
       nushell
       neofetch
       shotman
@@ -73,7 +76,7 @@
       slurp
       vscode
       gh
-      cloudflared
+      #cloudflared
       #greetd.tuigreet
       wofi
       bat
@@ -91,7 +94,7 @@
       #wlsunset
       #swaynotificationcenter
       mako
-      cli-visualizer
+      #cli-visualizer
       cbonsai
       #steamPackages.steamcmd
       #steam-tui

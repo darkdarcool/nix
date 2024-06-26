@@ -108,7 +108,7 @@
       ":" = {
         mapping = { __raw = "cmp.mapping.preset.cmdline()"; };
 
-        sources = [ { name = "path"; } { name = "cmdline"; } ];
+        sources = [{ name = "path"; } { name = "cmdline"; }];
       };
     };
   };

@@ -4,6 +4,7 @@
   imports = [
     ./hosts/darkdarcool/nvim.nix
     ./hosts/darkdarcool/desktop.nix
+    ./hosts/darkdarcool/schizofox.nix
     ./hosts/darkdarcool/wayland
     ./hosts/darkdarcool/terminals
     #  ./hosts/darkdarcool/firefox.nix
@@ -12,6 +13,7 @@
   # manage.
   home.username = "darkdarcool";
   home.homeDirectory = "/home/darkdarcool";
+
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
   home.packages = [ ];
@@ -23,7 +25,10 @@
   };
 
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  programs.home-manager = {
+		enable = true;
+		# backupFileExtension = "backup";
+	};
 
   programs.bat = {
     config.theme = "base16";

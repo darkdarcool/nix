@@ -9,27 +9,27 @@
     plugins = [ inputs.hycov.packages.${pkgs.system}.hycov ];
 
     extraConfig = ''
-		bind = ALT, tab, hycov:toggleoverview
-    	bind = ALT, left, hycov:movefocus, l
-        bind = ALT, right, hycov:movefocus, r
-        bind = ALT, up, hycov:movefocus, u
-        bind = ALT, down, hycov:movefocus, d
+      	bind = ALT, tab, hycov:toggleoverview
+          	bind = ALT, left, hycov:movefocus, l
+              bind = ALT, right, hycov:movefocus, r
+              bind = ALT, up, hycov:movefocus, u
+              bind = ALT, down, hycov:movefocus, d
 
-        plugin {
-        	hycov {
-        		overview_gappo = 60 #gaps width from screen
-            	overview_gappi = 24 #gaps width from clients
-                hotarea_size = 10 #hotarea size in bottom left,10x10
-                enable_hotarea = 1 # enable mouse cursor hotarea
-            }
-    	}
+              plugin {
+              	hycov {
+      		  overview_gappo = 60 #gaps width from screen
+      		  overview_gappi = 24 #gaps width from clients
+      		  hotarea_size = 10 #hotarea size in bottom left,10x10
+      		  enable_hotarea = 1 # enable mouse cursor hotarea
+      		}
+          	}
     '';
 
     settings = {
       "$mainMod" = "SUPER";
       decoration = {
         blur = {
-          enabled = true;
+          enabled = false;
           size = 4;
           passes = 1;
           noise = 0;
@@ -99,7 +99,9 @@
         preserve_split = "yes";
       };
 
-      master = { new_is_master = true; };
+      master = {
+        # new_is_master = true; 
+      };
 
       misc = {
         force_default_wallpaper = 0;
@@ -119,12 +121,13 @@
         #"ALT, Tab, cyclenext,"
         #"ALT, Tab, bringactivetotop,"
         #"ALT,tab,overview:toggle"
-      ] ++ (builtins.concatLists (builtins.genList (x:
-        let ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
-        in [
-          "$mainMod, ${ws}, workspace, ${toString (x + 1)}"
-          "$mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-        ]) 10));
+      ] ++ (builtins.concatLists (builtins.genList
+        (x:
+          let ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
+          in [
+            "$mainMod, ${ws}, workspace, ${toString (x + 1)}"
+            "$mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+          ]) 10));
 
       bindm = [
         "$mainMod, mouse:272, movewindow"
@@ -133,16 +136,16 @@
 
       bindr = [ "SUPER, SUPER_L, exec, rofi -show drun -show-icons" ];
 
-      bindel = 
-	  	let playerctl = "${pkgs.playerctl}/bin/playerctl";
-      	in [
-        	", XF86AudioRaiseVolume, exec, amixer set Master 1%+"
-        	", XF86AudioLowerVolume, exec, amixer set Master 1%-"
-        	", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
-        	", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-        	", XF86AudioPlay, exec, ${playerctl} play-pause"
-        	", XF86AudioNext, exec, ${playerctl} next"
-      	];
+      bindel =
+        let playerctl = "${pkgs.playerctl}/bin/playerctl";
+        in [
+          ", XF86AudioRaiseVolume, exec, amixer set Master 1%+"
+          ", XF86AudioLowerVolume, exec, amixer set Master 1%-"
+          ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+          ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+          ", XF86AudioPlay, exec, ${playerctl} play-pause"
+          ", XF86AudioNext, exec, ${playerctl} next"
+        ];
 
       bindl = [
         ", XF86AudioMute, exec, amixer set Master toggle"
@@ -166,6 +169,8 @@
         "hyprpaper"
         "ssh-agent -s"
         "mako"
+        #"pipewire"
+        #"wireplumber"
         # lock hyprland on open
         "hyprlock"
       ];

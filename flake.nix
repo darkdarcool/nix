@@ -42,10 +42,26 @@
     ags.url = "github:Aylur/ags";
 
     themes.url = "github:RGBCube/ThemeNix";
+
+    schizofox.url = "github:schizofox/schizofox";
   };
 
-  outputs = { self, nixpkgs, nixvim, nur, nix-colors, ghostty, home-manager
-    , flake-parts, auto-cpufreq, howdy, zls, zig, hyprland, themes, ...
+  outputs =
+    { self
+    , nixpkgs
+    , nixvim
+    , nur
+    , nix-colors
+    , ghostty
+    , home-manager
+    , flake-parts
+    , auto-cpufreq
+    , howdy
+    , zls
+    , zig
+    , hyprland
+    , themes
+    , ...
     }@inputs:
     let theme = themes.oxocarbon-dark;
     in {
@@ -72,6 +88,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+						home-manager.backupFileExtension = "hm-backup";
 
             home-manager.extraSpecialArgs = {
               inherit nix-colors;
@@ -93,6 +110,7 @@
                 # inputs.hyprlock.homeManagerModules.hyprlock
                 inputs.nur.hmModules.nur
                 inputs.nixvim.homeManagerModules.nixvim
+                inputs.schizofox.homeManagerModule
                 # ./hosts/darkdarcool/nvim.nix
                 ./home.nix
               ];

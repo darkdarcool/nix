@@ -37,17 +37,21 @@
   # sound.enable = true;
   # hardware.pulseaudio.enable = false;
   # security.rtkit.enable = true;
-  # services.pipewire = {
-  # 	enable = true;
-  # 	alsa.enable = true;
-  # 	alsa.support32Bit = true;
-  # 	pulse.enable = true;
-  #
-  # };
+  services.pipewire = {
+    enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+    wireplumber.enable = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
+
 
   sound.enable = true;
   hardware.pulseaudio = {
-    enable = true;
+    enable = false;
     package = pkgs.pulseaudioFull;
     extraConfig = ''
       load-module module-switch-on-connect
