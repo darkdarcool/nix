@@ -9,6 +9,7 @@
     shell = pkgs.nushell;
 
     packages = with pkgs; [
+			ventoy
 			sbctl
       xdg-desktop-portal-hyprland
       #pipewire
