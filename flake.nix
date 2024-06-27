@@ -44,6 +44,13 @@
     themes.url = "github:RGBCube/ThemeNix";
 
     schizofox.url = "github:schizofox/schizofox";
+
+		lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
+
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -61,6 +68,7 @@
     , zig
     , hyprland
     , themes
+		, lanzaboote
     , ...
     }@inputs:
     let theme = themes.oxocarbon-dark;
@@ -70,6 +78,7 @@
         specialArgs = { inherit inputs; };
         system = "x86_64-linux";
         modules = [
+					lanzaboote.nixosModules.lanzaboote
           (./overlays.nix)
           nur.nixosModules.nur
           {

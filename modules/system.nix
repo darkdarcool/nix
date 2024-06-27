@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, inputs, pkgs, lib, ... }:
 
 {
   security.pam.services.hyprlock = { };
@@ -20,7 +20,7 @@
   };
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  #boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -83,4 +83,10 @@
   #     enable = true;
   #     package = inputs.howdy.legacyPackages.${pkgs.system}.linux-enable-ir-emitter;
   #   };
+	boot.loader.systemd-boot.enable = lib.mkForce false;
+
+  boot.lanzaboote = {
+  	enable = true;
+  	pkiBundle = "/etc/secureboot";
+  };
 }
