@@ -27,36 +27,39 @@
     globals.mapleader = " ";
 
     extraConfigLua = ''
-          	-- get rid of the sign column (it moves text and thats a no no)
-              vim.opt.signcolumn = "no"
+    	-- get rid of the sign column (it moves text and thats a no no)
+      vim.opt.signcolumn = "no"
             
-              -- rounded hover doc (its 10x better)
-              vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-            		border = "rounded",
-            		underline = true
-              })
+      -- rounded hover doc (its 10x better)
+      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+        border = "rounded",
+        underline = true
+      })
 
-              vim.cmd("hi FloatBorder guifg=#acacac guibg=#161616")
+			-- border color fix
+      vim.cmd("hi FloatBorder guifg=#acacac guibg=#161616")
 
-              vim.opt.title = true
-              vim.opt.titlelen = 0 -- do not shorten title
+      vim.opt.title = true
+      vim.opt.titlelen = 0 -- do not shorten title
             
-              vim.api.nvim_create_autocmd("BufEnter", { 
-            		pattern = "*",
-            		callback = function()
-            	  		local path = vim.fn.expand("%:p")
-            	  		-- replace /home/darkdarcool with ~
-            	  		path = string.gsub(path, "/home/darkdarcool", "~")
-            	  		vim.opt.titlestring = "nvim " .. path
-            		end
-              })
+      vim.api.nvim_create_autocmd("BufEnter", { 
+        pattern = "*",
+        callback = function()
+        	local path = vim.fn.expand("%:p")
+          -- replace /home/darkdarcool with ~
+          path = string.gsub(path, "/home/darkdarcool", "~")
+          vim.opt.titlestring = "nvim " .. path
+        end
+      })
 
-      	-- add colorcolumn
-      	vim.opt.colorcolumn = "80"
+      -- add colorcolumn
+      vim.opt.colorcolumn = "80"
 
-      	-- tab size
-      	vim.opt.tabstop = 2
-      	vim.opt.shiftwidth = 2
+      -- tab size
+      vim.opt.tabstop = 2
+      vim.opt.shiftwidth = 2
+			vim.opt.expandtab = true
+			vim.opt.smartindent = true
     '';
 
     plugins = {
