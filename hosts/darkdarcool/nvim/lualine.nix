@@ -76,8 +76,15 @@
         # Shitty lil' hack to get cwd in the statusline
         {
           name = "filename";
-          fmt =
-            "  function(text)\n    -- all content after the last '/'\n    local cwd = vim.fn.getcwd()\n    local cwd = cwd:match(\".*/(.*)\")\n    local cwd = \" \" .. cwd\n    return cwd\n  end\n";
+          fmt = /*lua*/ ''
+            function(text)    
+              -- all content after the last '/'    
+              local cwd = vim.fn.getcwd()    
+              local cwd = cwd:match(".*/(.*)")
+              local cwd = " " .. cwd
+              return cwd 
+            end
+          '';
           separator = {
             left = "";
             right = "|";
