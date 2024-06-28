@@ -9,6 +9,9 @@
     shell = pkgs.nushell;
 
     packages = with pkgs; [
+			deno
+			arp-scan
+			easyeffects
 			ventoy
 			sbctl
       xdg-desktop-portal-hyprland
