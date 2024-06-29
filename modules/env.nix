@@ -27,13 +27,13 @@
     openssl
     pavucontrol
     bluez
-    inkscape-with-extensions
-    (pkgs.catppuccin-gtk.override {
-      accents = [ "maroon" ];
-      size = "standard";
-      tweaks = [ "rimless" "black" ];
-      variant = "mocha";
-    })
+    #inkscape-with-extensions
+    #(pkgs.catppuccin-gtk.override {
+    #  accents = [ "maroon" ];
+    #  size = "standard";
+    #  tweaks = [ "rimless" "black" ];
+    #  variant = "mocha";
+    #})
   ];
   environment.etc = {
     "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text =

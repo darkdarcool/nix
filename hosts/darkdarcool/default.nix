@@ -1,10 +1,10 @@
 { inputs, ... }:
-let 
-   theme = inputs.themes.oxocarbon-dark;
+let
+  theme = inputs.themes.oxocarbon-dark;
 in
 {
-  
-    imports = [
+
+  imports = [
     ../../configuration.nix
 
     inputs.lanzaboote.nixosModules.lanzaboote
@@ -48,6 +48,6 @@ in
         ];
       };
     }
-    ];
-  
+  ];
+
 }
