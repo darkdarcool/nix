@@ -8,15 +8,15 @@
       denols.enable = true;
       #tsserver.enable = true;
       rust-analyzer = {
-				enable = true;
-				package = null;
-				installRustc = false;
-			};
+        enable = true;
+        package = null;
+        installRustc = false;
+      };
       # nil_ls.enable = true;
       zls = {
         enable = true;
         #package = inputs.zls.packages."${pkgs.system}".zls;
-				package = null;
+        package = null;
       };
 
       gleam.enable = true;

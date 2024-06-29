@@ -83,10 +83,10 @@
   #     enable = true;
   #     package = inputs.howdy.legacyPackages.${pkgs.system}.linux-enable-ir-emitter;
   #   };
-	boot.loader.systemd-boot.enable = lib.mkForce false;
+  boot.loader.systemd-boot.enable = lib.mkForce false;
 
   boot.lanzaboote = {
-  	enable = true;
-  	pkiBundle = "/etc/secureboot";
+    enable = true;
+    pkiBundle = "/etc/secureboot";
   };
 }

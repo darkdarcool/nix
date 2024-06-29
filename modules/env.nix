@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     # waybar
     inputs.waybar.packages."${pkgs.system}".default
+    inputs.ghostty.packages."${pkgs.system}".default
     rofi-wayland
     wtype
     hyprpaper

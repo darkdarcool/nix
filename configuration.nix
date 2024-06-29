@@ -87,7 +87,7 @@
   };
 
   nix.settings.sandbox = false;
-	users.defaultUserShell = pkgs.nushell;
+  users.defaultUserShell = pkgs.nushell;
 
   #programs.nh = {
   #  enable = true;

@@ -7,8 +7,8 @@
     theme = {
       colors = with theme.colors; {
         background-darker = base00;
-        background        = base01;
-        foreground        = base04;
+        background = base01;
+        foreground = base04;
       };
 
       font = theme.fonts.monospace;
@@ -53,14 +53,14 @@
       # simplefox.enable = true;
       darkreader.enable = false;
 
-			enableExtraExtensions = true;
+      enableExtraExtensions = true;
 
       extraExtensions = {
-				"uBlock0@raymondhill.net" = {
-					install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-					installation_mode = "force_installed";
-				};
-				"{d634138d-c276-4fc8-924b-40a0ea21d284}" = {
+        "uBlock0@raymondhill.net" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "{d634138d-c276-4fc8-924b-40a0ea21d284}" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
           installation_mode = "force_installed";
         };
