@@ -1,9 +1,18 @@
-{ inputs, ... }:
+{ inputs, lib, config, ... }:
 let
   theme = inputs.themes.oxocarbon-dark;
 in
 {
+  #options.codefont = lib.mkOption {
+  #  type = lib.types.str;
+  #  #default = # "JetBrainsMono Nerd Font Mono";
+  #  description = "The font to use for code";
+  #};
 
+
+  #config = {
+    #codefont = "JetBrainsMono Nerd Font Mono";
+  #};
   imports = [
     ../../configuration.nix
 
@@ -27,7 +36,7 @@ in
           fonts = {
             monospace = "Liga SFMono Nerd Font";
             serif = "MesloLGSDZ Nerd Font";
-            code = "JetBrainsMono Nerd Font Mono";
+            code = config.codefont; # "JetBrainsMono Nerd Font Mono";
           };
         };
       };
