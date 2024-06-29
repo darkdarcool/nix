@@ -9,15 +9,26 @@
         mkMerge
         mkSystems
         ;
+
       sharedArgs = {
         inherit lib;
       };
 
       #laptop = import ../configuration.nix;
+      modulesPath = ../modules;
+
+      base = modulesPath + /base;
+      security = modulesPath + /security;
+
+      hardwarePath = modulesPath + /hardware;
+
+
+      laptop = hardwarePath + /laptop;
 
       shared = [
-        #base
+        base
         #homes
+        security
       ];
 
     in
@@ -29,7 +40,7 @@
           inherit withSystem;
           system = "x86_64-linux";
           modules = [
-            # laptop
+            laptop
             #graphical
             #./darkdarcool/default.nix
           ] ++ concatLists [ shared ];

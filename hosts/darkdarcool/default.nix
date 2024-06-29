@@ -11,8 +11,20 @@ in
 
 
   #config = {
-    #codefont = "JetBrainsMono Nerd Font Mono";
+  #codefont = "JetBrainsMono Nerd Font Mono";
+
   #};
+
+  config = {
+    modules = {
+      hardware = {
+        auto-cpufreq.enable = true;
+      };
+    };
+
+  };
+  # Is this bad? Yes. Do I care? No.
+
   imports = [
     ../../configuration.nix
 
@@ -36,7 +48,7 @@ in
           fonts = {
             monospace = "Liga SFMono Nerd Font";
             serif = "MesloLGSDZ Nerd Font";
-            code = config.codefont; # "JetBrainsMono Nerd Font Mono";
+            code = "JetBrainsMono Nerd Font Mono";
           };
         };
       };
